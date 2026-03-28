@@ -11,14 +11,15 @@ function App() {
   // const [forecast, setForecast] = useState([]);
 
   const getWeather = async (cityName) => {
-    const API_KEY = "905ebfceb8dd44d0b7a140405262203";
     if (!cityName.trim()) return;
 
     setLoading(true);
 
     try {
       const resWeather = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cityName}&aqi=no`
+        `${import.meta.env.VITE_WEATHER_API_URL}current.json?key=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&q=${cityName}&aqi=no`
       );
       const dataWeather = await resWeather.json();
       setWeather(dataWeather);
