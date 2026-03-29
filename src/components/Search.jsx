@@ -1,4 +1,9 @@
-function Search({ city, setCity, getWeather }) {
+import { useWeatherStore } from "../store/weatherStore";
+
+function Search() {
+
+  const { city, setCity, getWeather } = useWeatherStore();
+
   const handleSearch = () => {
     if (!city.trim()) return;
     getWeather(city);
@@ -18,8 +23,6 @@ function Search({ city, setCity, getWeather }) {
           }
         }}
       />
-
-      {/* <button onClick={handleSearch}>Search</button> */}
     </div>
   );
 }
