@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite подставляет VITE_* в JS; для публичного API-ключа это ожидаемо — не секрет на сервере.
+  SECRETS_SCAN_OMIT_KEYS = "VITE_WEATHER_API_KEY"
